@@ -5,7 +5,7 @@
   "tsx": true,
   "tailwind": {
     "config": "",
-    "css": "apps/nextjs-frontend/src/app/global.css",
+    "css": "apps/frontend/src/app/global.css",
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
