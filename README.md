@@ -12,7 +12,7 @@ A **monitor** consists of:
 
 - A **Name** (e.g., "Google Homepage")
 - A **URL** (e.g., `https://www.google.com`)
-- A **Frequency** (in minutes)
+- A **Frequency** (in seconds)
 - A **Status** (Online, Offline, Unknown)
 
 At the specified frequency, the system should send an HTTP `GET` request to the URL and store the result.
@@ -32,7 +32,7 @@ I should see an empty state with a call to action to add my first monitor
 <img src="./README/no-monitors.png" alt="No Monitors" width="600" />
 
 **As a User**  
-When I visit the frontendapplication in my browser  
+When I visit the frontend application in my browser  
 And I have added monitors  
 I should see a list of my monitors  
 I should be able to manually trigger a check for a monitor  
