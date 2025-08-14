@@ -1,109 +1,74 @@
-# FullstackChallenge
+# URL Monitor – Full-Stack Interview Exercise
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+## Overview
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+Your task is to build a **minimal web application** that lets a user:
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+1. Create, read, update, and delete “monitors” for website URLs.
+2. Automatically and manuallycheck whether each monitored URL is reachable.
+3. Show the most recent status for each URL (Online, Offline, Unknown).
 
-## Generate a library
+A **monitor** consists of:
 
-```sh
-npx nx g @nx/js:lib packages/pkg1 --publishable --importPath=@my-org/pkg1
-```
+- A **Name** (e.g., "Google Homepage")
+- A **URL** (e.g., `https://www.google.com`)
+- A **Frequency** (in minutes)
+- A **Status** (Online, Offline, Unknown)
 
-## Run tasks
+At the specified frequency, the system should send an HTTP `GET` request to the URL and store the result.
 
-To build the library use:
+## Expected Deliverable
 
-```sh
-npx nx build pkg1
-```
+- Working application that runs locally.
+- Code should be reasonably structured for readability and maintainability.
+- You **do not** need production-ready auth, deployment setup, or advanced error handling.
 
-To run any task with Nx use:
+## User Stories
 
-```sh
-npx nx <target> <project-name>
-```
+**As a User**  
+When I visit the frontend application in my browser  
+I should be presented with the application UI  
+I should see an empty state with a call to action to add my first monitor  
+<img src="./README/no-monitors.png" alt="No Monitors" width="600" />
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+**As a User**  
+When I visit the frontendapplication in my browser  
+And I have added monitors  
+I should see a list of my monitors  
+I should be able to manually trigger a check for a monitor  
+I should be able to edit the details of a monitor  
+I should be able to delete a monitor  
+<img src="./README/list-monitors.png" alt="List Monitors" width="600" />
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+**As a User**  
+When I am viewing the list of monitors  
+I should see clear, color-coded status badges (Online, Offline, Unknown, Checking)  
+<img src="./README/check-monitor.png" alt="Check Monitor" width="600" />
 
-## Versioning and releasing
+**As a User**  
+When I am viewing the list of monitors  
+I should be able to add a new monitor  
+<img src="./README/add-monitor.png" alt="Add Monitor" width="600" />
 
-To version and release the library use
+**As a User**  
+When I am viewing the list of monitors  
+I should be able to edit the details of a monitor  
+<img src="./README/edit-monitor.png" alt="Edit Monitor" width="600" />
 
-```
-npx nx release
-```
+**As a User**  
+When I choose to delete a monitor  
+I should be asked to confirm and then the monitor is removed from the list  
+<img src="./README/delete-monitor.png" alt="Delete Monitor" width="600" />
 
-Pass `--dry-run` to see what would happen without actually releasing the library.
+**As a User**  
+When I perform add or delete a monitor
+I should see a descriptive message in a toast explaining what happened (failure or success)  
+<img src="./README/add-monitor-feedback.png" alt="Add monitor feedback" width="600" />  
+<img src="./README/delete-monitor-feedback.png" alt="Delete monitor feedback" width="600" />
 
-[Learn more about Nx release &raquo;](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
 
-## Keep TypeScript project references up to date
+### Resources
 
-Nx automatically updates TypeScript [project references](https://www.typescriptlang.org/docs/handbook/project-references.html) in `tsconfig.json` files to ensure they remain accurate based on your project dependencies (`import` or `require` statements). This sync is automatically done when running tasks such as `build` or `typecheck`, which require updated references to function correctly.
-
-To manually trigger the process to sync the project graph dependencies information to the TypeScript project references, run the following command:
-
-```sh
-npx nx sync
-```
-
-You can enforce that the TypeScript project references are always in the correct state when running in CI by adding a step to your CI job configuration that runs the following command:
-
-```sh
-npx nx sync:check
-```
-
-[Learn more about nx sync](https://nx.dev/reference/nx-commands#sync)
-
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
-```
-
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
-
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-### Step 2
-
-Use the following command to configure a CI workflow for your workspace:
-
-```sh
-npx nx g ci-workflow
-```
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Shadcn: https://ui.shadcn.com/docs  
+Lucide icons: https://lucide.dev/icons/
