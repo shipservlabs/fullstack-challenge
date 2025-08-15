@@ -1,4 +1,4 @@
-# URL Monitor – Full-Stack Interview Exercise
+# URL Monitor - Full-Stack Interview Exercise
 
 ## Overview
 
@@ -22,6 +22,21 @@ At the specified frequency, the system should send an HTTP `GET` request to the 
 - Working application that runs locally.
 - Code should be reasonably structured for readability and maintainability.
 - You **do not** need production-ready auth, deployment setup, or advanced error handling.
+
+## Resources
+
+Start applications with:
+
+```bash
+# Start the frontend
+npx nx dev frontend
+
+# Start the backend
+npx nx dev backend
+```
+
+Shadcn: https://ui.shadcn.com/docs  
+Lucide icons: https://lucide.dev/icons/
 
 ## User Stories
 
@@ -61,14 +76,7 @@ I should be asked to confirm and then the monitor is removed from the list
 <img src="./README/delete-monitor.png" alt="Delete Monitor" width="600" />
 
 **As a User**  
-When I perform add or delete a monitor
+When I add or delete a monitor  
 I should see a descriptive message in a toast explaining what happened (failure or success)  
 <img src="./README/add-monitor-feedback.png" alt="Add monitor feedback" width="600" />  
 <img src="./README/delete-monitor-feedback.png" alt="Delete monitor feedback" width="600" />
-
----
-
-### Resources
-
-Shadcn: https://ui.shadcn.com/docs  
-Lucide icons: https://lucide.dev/icons/
