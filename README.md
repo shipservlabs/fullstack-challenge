@@ -38,6 +38,17 @@ npx nx dev backend
 Shadcn: https://ui.shadcn.com/docs  
 Lucide icons: https://lucide.dev/icons/
 
+#### MongoDB Setup
+
+```bash
+docker run --name fullstack-challenge-mongo \
+  -e MONGO_INITDB_ROOT_USERNAME=fullstack_user \
+  -e MONGO_INITDB_ROOT_PASSWORD=fullstack_password \
+  -e MONGO_INITDB_DATABASE=fullstack_challenge \
+  -p 27017:27017 \
+  -d mongo:7
+```
+
 ## User Stories
 
 **As a User**  
