@@ -5,7 +5,7 @@
 Your task is to build a **minimal web application** that lets a user:
 
 1. Create, read, update, and delete “monitors” for website URLs.
-2. Automatically and manuallycheck whether each monitored URL is reachable.
+2. Automatically and manually check whether each monitored URL is reachable.
 3. Show the most recent status for each URL (Online, Offline, Unknown).
 
 A **monitor** consists of:
